@@ -14,7 +14,7 @@ import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class SimpleDrawEditor extends JFrame {
+public class SimpleDraw extends JFrame {
     private JPanel drawingArea;
     private JLabel statusLabel;
 
@@ -41,7 +41,7 @@ public class SimpleDrawEditor extends JFrame {
         return new Color(r, g, b);
     }
 
-    public SimpleDrawEditor() {
+    public SimpleDraw() {
         setTitle(title);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
@@ -223,7 +223,7 @@ public class SimpleDrawEditor extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFileChooser fileChooser = new JFileChooser();
-                int option = fileChooser.showOpenDialog(SimpleDrawEditor.this);
+                int option = fileChooser.showOpenDialog(SimpleDraw.this);
                 if (option == JFileChooser.APPROVE_OPTION) {
                     File file = fileChooser.getSelectedFile();
                     openFile(file);
@@ -308,7 +308,7 @@ public class SimpleDrawEditor extends JFrame {
         colorMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                currentColor = JColorChooser.showDialog(SimpleDrawEditor.this, "Choose Color", Color.BLACK);
+                currentColor = JColorChooser.showDialog(SimpleDraw.this, "Choose Color", Color.BLACK);
             }
         });
 
@@ -360,7 +360,7 @@ public class SimpleDrawEditor extends JFrame {
 
     private void saveAs() {
         JFileChooser fileChooser = new JFileChooser();
-        int option = fileChooser.showSaveDialog(SimpleDrawEditor.this);
+        int option = fileChooser.showSaveDialog(SimpleDraw.this);
         if (option == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
             fileSavedPath = file.getPath();
@@ -399,7 +399,7 @@ public class SimpleDrawEditor extends JFrame {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                SimpleDrawEditor editor = new SimpleDrawEditor();
+                SimpleDraw editor = new SimpleDraw();
                 editor.setVisible(true);
             }
         });
